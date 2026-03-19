@@ -1,0 +1,41 @@
+settings:
+  # These are defaults.
+  use hardware encoding: yes
+  use hardware decoding: yes
+  # If HDR is present in the video track, preserve it by switching to the 10-bit or 12-bit profile, whichever is used by the source. HDR tonemapping and dealing with Dolby Vision is far beyond the scope of this project.
+  detect HDR: yes
+
+general:
+  # Use this preset for all unset settings.
+  # preset: "General/Super HQ 1080p30 Surround"
+
+audio:
+  tracks: all
+
+  # If the track's codec supports passthrough, and it isn't in the blacklist, pass it through with HandBrake's `copy` mode.
+  passthru tracks when able: yes
+
+  # If any track uses one of these codecs, they will be re-encoded with the fallback codec.
+  # Allowed codecs: av_aac, aac, ac3, eac3, truehd, mp3, opus, vorbis, flac16, flac24, alac16, alac24
+  encoder blacklist:
+  - opus
+  - vorbis
+  encoder fallback: aac
+
+  # Do not enable mixdown for any track ever.
+  mixdown: no
+
+video:
+  # Set allowed encoder (codec and target, i.e. software/hardware), which preferred one on top.
+  # Hardware-specific encoder (such as those using NVENC) are automatically used, if available and enabled.
+  # If HDR is detected (10-bit or 12-bit), the corresponding encoder will be used.
+  # CLI flag (roughly): --encoder
+  codec: x265
+  
+  # Set video framerate. Setting to "source" tells HandBrake use the source file's framerate.
+  # CLI flag (eventually): --rate
+  fps: source
+
+  # CLI flag: --vb
+  # This also sets the --pfr flag.
+  # peak bitrate: 20_000

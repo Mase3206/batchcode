@@ -1,0 +1,8 @@
+general:
+  # Use this preset for all unset settings
+  preset: "General/Super HQ 1080p30 Surround"
+
+video:
+  # CLI flag: --vb
+  # This also sets the --pfr flag.
+  peak bitrate: 18_000

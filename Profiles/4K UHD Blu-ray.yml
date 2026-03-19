@@ -1,0 +1,8 @@
+general:
+  # Use this preset for all unset settings
+  preset: "General/Super HQ 2160p60 4K HEVC Surround"
+
+video:
+  # CLI flag: --vb
+  # This also sets the --pfr flag.
+  peak bitrate: 50_000
